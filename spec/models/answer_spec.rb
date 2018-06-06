@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:question) { Question.create!(title: 'Question title', body: 'Question body', resolved: false) }
+  let(:answer) { Answer.create!(body: 'Answer Body', question: question) }
+
+  describe 'attributes' do
+    it 'has a body attribute' do
+      expect(answer).to have_attributes(body: 'Answer Body', question: question)
+    end
+  end
 end
