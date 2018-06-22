@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
-  get 'home/about'
+  resources :posts
+
+  get 'about' => 'welcome#about'
 
   root 'home#index'
 end
